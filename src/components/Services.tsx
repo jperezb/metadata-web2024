@@ -1,27 +1,27 @@
 const Services = () => {
   const services = [
     {
-      title: "Web Development",
-      description: "Custom web applications built with cutting-edge technologies"
+      title: "Transformación Tecnológica",
+      description: "Ayudamos a las empresas a transformar su negocio con tecnologías modernas."
     },
     {
-      title: "Mobile Development",
-      description: "Native and cross-platform mobile applications"
+      title: "Desarrollo de aplicaciones",
+      description: "Desarrollamos aplicaciones personalizadas para satisfacer las necesidades específicas de tu negocio."
     },
     {
-      title: "Cloud Solutions",
-      description: "Scalable and secure cloud infrastructure services"
+      title: "Inteligencia Artificial",
+      description: "Implementamos soluciones de IA para optimizar sus operaciones y mejorar la experiencia del cliente."
     },
     {
-      title: "Consulting",
-      description: "Expert technical consulting and architecture design"
+      title: "Soluciones cloud",
+      description: "Implementamos infraestructura cloud robusta y altamente escalable para optimizar sus operaciones."
     }
   ];
 
   return (
     <div className="bg-white py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-16">Our Services</h2>
+        <h2 className="text-4xl font-bold text-center mb-16">Nuestros Servicios</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <div 
