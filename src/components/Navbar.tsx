@@ -17,7 +17,10 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <img 
-          src="/lovable-uploads/ecb06c06-d677-49e5-8ea2-b257d9cc8745.png" 
+          src={scrolled 
+            ? "/lovable-uploads/ecb06c06-d677-49e5-8ea2-b257d9cc8745.png"
+            : "/lovable-uploads/aad4ac8f-b737-4d2e-b93d-989f5bb78407.png"
+          }
           alt="Metadata Logo" 
           className="h-12"
         />
