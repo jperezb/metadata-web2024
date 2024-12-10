@@ -6,6 +6,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "@/components/ui/use-toast"
+import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses"
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
@@ -25,26 +26,41 @@ const ContactForm = () => {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      // Aquí normalmente iría la lógica de envío al backend
-      // Por ahora simulamos el envío
-      console.log("Enviando email a javier@metadata.cl", {
-        to: "javier@metadata.cl",
-        from: values.email,
-        subject: `Nuevo mensaje de ${values.name}`,
-        message: values.message
-      })
+      const sesClient = new SESClient({
+        region: 'us-east-1',
+        credentials: {
+          accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+          secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY
+        }
+      });
+
+      const params = {
+        Destination: {
+          ToAddresses: ["javier@metadata.cl"],
+        },
+        Message: {
+          Body: {
+            Text: { Data: values.message },
+          },
+          Subject: { Data: `Nuevo mensaje de ${values.name}` },
+        },
+        Source: values.email,
+      };
+
+      const command = new SendEmailCommand(params);
+      await sesClient.send(command);
 
       toast({
         title: "¡Mensaje enviado!",
         description: "Nos pondremos en contacto contigo lo antes posible.",
-      })
-      form.reset()
+      });
+      form.reset();
     } catch (error) {
       toast({
         title: "Error al enviar el mensaje",
         description: "Por favor, intenta nuevamente más tarde.",
         variant: "destructive"
-      })
+      });
     }
   }
 
