@@ -2,19 +2,19 @@ const Clients = () => {
   const clients = [
     {
       name: "Pleno",
-      logo: "public/clients/pleno.png"
+      logo: "clients/pleno.png"
     },
     {
       name: "Santillana",
-      logo: "public/clients/santillana.png"
+      logo: "clients/santillana.png"
     },
     {
       name: "Ministerio de Economía",
-      logo: "public/clients/ministerio_economia.png"
+      logo: "clients/ministerio_economia.png"
     },
     {
       name: "Egia",
-      logo: "public/clients/egia.png"
+      logo: "clients/egia.png"
     }
   ];
 
