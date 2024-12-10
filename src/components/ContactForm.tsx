@@ -23,13 +23,29 @@ const ContactForm = () => {
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
-    })
-    form.reset()
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      // Aquí normalmente iría la lógica de envío al backend
+      // Por ahora simulamos el envío
+      console.log("Enviando email a javier@metadata.cl", {
+        to: "javier@metadata.cl",
+        from: values.email,
+        subject: `Nuevo mensaje de ${values.name}`,
+        message: values.message
+      })
+
+      toast({
+        title: "¡Mensaje enviado!",
+        description: "Nos pondremos en contacto contigo lo antes posible.",
+      })
+      form.reset()
+    } catch (error) {
+      toast({
+        title: "Error al enviar el mensaje",
+        description: "Por favor, intenta nuevamente más tarde.",
+        variant: "destructive"
+      })
+    }
   }
 
   return (
