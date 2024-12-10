@@ -1,27 +1,27 @@
 const Clients = () => {
   const clients = [
     {
-      name: "Cliente 1",
-      logo: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7"
+      name: "Pleno",
+      logo: "public/clients/pleno.png"
     },
     {
-      name: "Cliente 2",
-      logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
+      name: "Santillana",
+      logo: "public/clients/santillana.png"
     },
     {
-      name: "Cliente 3",
-      logo: "https://images.unsplash.com/photo-1518770660439-4636190af475"
+      name: "Ministerio de Economía",
+      logo: "public/clients/ministerio_economia.png"
     },
     {
-      name: "Cliente 4",
-      logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
+      name: "Egia",
+      logo: "public/clients/egia.png"
     }
   ];
 
   return (
     <div className="bg-gray-50 py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-16">Nuestros Clientes</h2>
+        <h2 className="text-4xl font-bold text-center mb-16">Han confiado en nosotros</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {clients.map((client, index) => (
             <div 
